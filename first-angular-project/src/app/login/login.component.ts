@@ -5,30 +5,33 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
   email = 'alibarkook@gmail.com';
+  message = 'please make sure to fill out the email!';
+  AllowNewServer = false;
+  serverName = '';
+  thePass = '';
 
-  constructor() { }
+  constructor() { 
+    setTimeout( () => {
+      this.AllowNewServer = true;
+    }, 2000);
+  }
 
   ngOnInit(): void {
   }
 
   login() {
-    console.log(this.email);
-    
+  this.message = 'you have filled the email fully';
   }
 
-  registerResults () {
+ onUpdateServerName(event: Event) {
+   this.serverName = (<HTMLInputElement>event.target).value;
+ }
 
-    if (this.email.length == 0 ) { 
-       alert("Please fill out all the information fields");  
-
-    return false; 
-    }  	
-
-    else {
-        alert("You have fully entered all the information!");
-
-    // window.open( "../Homepage-Bootstrap/homepage.html", "_self");
-  }
+ working () {
+   console.log(this.thePass);
+   
+ }
 }
