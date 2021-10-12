@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
   message = 'please make sure to fill out the email!';
   AllowNewServer = false;
   serverName = '';
-  thePass = '';
+  thePass = 'test';
 
   constructor() { 
     setTimeout( () => {
