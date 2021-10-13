@@ -1,6 +1,5 @@
 <h3> This is a login page</h3>
 <form> 
-  <p> {{ message }}</p>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" 
@@ -11,21 +10,23 @@
   
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <input type="password" class="form-control" id="exampleInputPassword1" [ngModelOptions]="{standalone: true}" [(ngModel)]="thePass">
   </div>
 
   <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1" [(ngModel)]="thePass">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1" name='pass'>Check me out</label>
     <p>{{thePass}}</p>
   </div>
   
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Re-enter Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="thePass">
+    <input type="password" class="form-control" id="exampleInputPassword1" [ngModelOptions]="{standalone: true}" [(ngModel)]="thePass">
   </div>
 
   <hr>
 
-  <button type="submit" class="btn btn-primary" [disabled]='!AllowNewServer' (click)='login()'>Submit</button>
+  <button type="submit" class="btn btn-primary" [disabled]="(email === '' && thePass === '')" (click)='login()'>Submit</button>
+
+  <p *ngIf="message"> The account was created with the email of {{ serverName }}</p>
 </form>

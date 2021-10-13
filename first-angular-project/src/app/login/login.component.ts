@@ -7,23 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class LoginComponent implements OnInit {
-  email = 'alibarkook@gmail.com';
-  message = 'please make sure to fill out the email!';
-  AllowNewServer = false;
+  email = '';
+  // AllowNewServer = false;
   serverName = '';
-  thePass = 'test';
+  thePass = '';
+  message = false;
+  btnresult = "No account was created!"
 
   constructor() { 
-    setTimeout( () => {
-      this.AllowNewServer = true;
-    }, 2000);
   }
 
   ngOnInit(): void {
   }
 
   login() {
-  this.message = 'you have filled the email fully';
+    this.message = true;
+    this.btnresult = "The account was created with the email of" + this.serverName;
   }
 
  onUpdateServerName(event: Event) {
