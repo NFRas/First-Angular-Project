@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -12,12 +13,17 @@ export class LoginComponent implements OnInit {
   serverName = '';
   thePass = '';
   message = false;
-  btnresult = "No account was created!"
+  btnresult = "No account was created!";
+  // accountInfo : FormGroup;
 
   constructor() { 
   }
 
   ngOnInit(): void {
+    this.accountInfo = new FormGroup({
+      emailName : new FormControl(),
+      thePassword : new FormControl()
+    })
   }
 
   login() {
@@ -33,4 +39,8 @@ export class LoginComponent implements OnInit {
    console.log(this.thePass);
    
  }
+
+ showInputs () {
+  console.log(this.accountInfo.value);
+}
 }
