@@ -4,29 +4,33 @@
     <label for="exampleInputEmail1" class="form-label">Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" 
     (input)='onUpdateServerName($event)'>
-    <div>"{{serverName}}"</div>
     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
   
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" [ngModelOptions]="{standalone: true}" [(ngModel)]="thePass">
+    <input type="password" class="form-control" id="exampleInputPassword1" name="pass">
   </div>
 
   <div class="mb-3 form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1" name='pass'>Check me out</label>
-    <p>{{thePass}}</p>
+    <label class="form-check-label" for="exampleCheck1" >Check me out</label>
   </div>
   
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Re-enter Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" [ngModelOptions]="{standalone: true}" [(ngModel)]="thePass">
+    <input type="password" class="form-control" id="exampleInputPassword1" name="secondpass">
   </div>
 
   <hr>
 
-  <button type="submit" class="btn btn-primary" [disabled]="(email === '' && thePass === '')" (click)='login()'>Submit</button>
+  <button type="submit" class="btn btn-primary" (click)='login()'>Submit</button>
 
   <p *ngIf="message"> The account was created with the email of {{ serverName }}</p>
+</form>
+
+<form [formGroup]="accountInfo">
+  <input type="text" formControlName="emailName">
+  <input type="password" formControlName="thePassword">
+  <button (click)="showInputs()">Show the inputs</button>
 </form>
