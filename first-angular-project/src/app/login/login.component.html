@@ -1,21 +1,23 @@
 <h3> This is a login page</h3>
-<form> 
+
+<form [formGroup]="account"> 
+  <div>
+    <label> Full name</label>
+    <input formControlName="nameinfo" type="text" class="form-control">
+  </div>
+
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" 
+    <input formControlName="emailinfo" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" 
     (input)='onUpdateServerName($event)'>
     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
   
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" name="pass">
+    <input formControlName="passinfo" type="password" class="form-control" id="exampleInputPassword1" name="pass">
   </div>
 
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1" >Check me out</label>
-  </div>
   
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Re-enter Password</label>
@@ -24,13 +26,9 @@
 
   <hr>
 
-  <button type="submit" class="btn btn-primary" (click)='login()'>Submit</button>
+  <a routerLink = "/homepage" reouterLinkActive = "active"><button type="submit" class="btn btn-primary" [disabled]="account.invalid" (click)='login()'>Submit</button></a>
 
   <p *ngIf="message"> The account was created with the email of {{ serverName }}</p>
-</form>
 
-<form [formGroup]="accountInfo">
-  <input type="text" formControlName="emailName">
-  <input type="password" formControlName="thePassword">
-  <button (click)="showInputs()">Show the inputs</button>
+  <router-outlet></router-outlet>
 </form>

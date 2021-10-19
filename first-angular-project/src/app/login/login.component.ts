@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,22 +8,25 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 
 export class LoginComponent implements OnInit {
+  formCon = true
+
   email = '';
   // AllowNewServer = false;
   serverName = '';
   thePass = '';
   message = false;
   btnresult = "No account was created!";
-  // accountInfo : FormGroup;
+
+  account = new FormGroup({
+    emailinfo : new FormControl('example@email.com', [Validators.required]),
+    nameinfo : new FormControl('', [Validators.required, Validators.maxLength(15)]),
+    passinfo : new FormControl('', [Validators.required, Validators.maxLength(10)]),
+  });
 
   constructor() { 
   }
 
   ngOnInit(): void {
-    this.accountInfo = new FormGroup({
-      emailName : new FormControl(),
-      thePassword : new FormControl()
-    })
   }
 
   login() {
@@ -39,8 +42,4 @@ export class LoginComponent implements OnInit {
    console.log(this.thePass);
    
  }
-
- showInputs () {
-  console.log(this.accountInfo.value);
-}
 }

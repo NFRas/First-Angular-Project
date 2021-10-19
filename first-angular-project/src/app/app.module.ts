@@ -1,24 +1,31 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
-import { ServerComponent } from './server/server.component';
+import { HomepageComponent } from './homepage/homepage.component';
 import { ServersComponent } from './servers/servers.component';
-import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule, Routes} from '@angular/router'; //, Routes ham dasht
+
 import { NameEditorComponent } from './name-editor/name-editor.component';
 
+import { LoginComponent } from './login/login.component';
+import { RouterModule, Routes} from '@angular/router'; 
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
 const routes: Routes = [
-  { path: 'login', component: LoginComponent }
+  // { path: '', component:  },
+ { path: 'login', component: LoginComponent },
+ {path: 'homepage', component: HomepageComponent}
+
 ];
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ServerComponent,
+    HomepageComponent,
     ServersComponent,
     LoginComponent,
     NameEditorComponent
