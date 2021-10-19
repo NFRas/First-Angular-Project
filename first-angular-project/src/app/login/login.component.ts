@@ -7,8 +7,15 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 
+// class AlwaysAuthGuard implements CanActivate {
+//   canActivate() {
+//     console.log("AlwaysAuthGuard");
+//     return true;
+//   }
+// }
+
 export class LoginComponent implements OnInit {
-  formCon = true
+  // formCon = true
 
   email = '';
   // AllowNewServer = false;
@@ -18,12 +25,14 @@ export class LoginComponent implements OnInit {
   btnresult = "No account was created!";
 
   account = new FormGroup({
-    emailinfo : new FormControl('example@email.com', [Validators.required]),
-    nameinfo : new FormControl('', [Validators.required, Validators.maxLength(15)]),
-    passinfo : new FormControl('', [Validators.required, Validators.maxLength(10)]),
-  });
+      emailinfo : new FormControl('', [Validators.required]),
+      nameinfo : new FormControl('', [Validators.required, Validators.maxLength(30)]),
+      passinfo : new FormControl('', [Validators.required, Validators.maxLength(10)]),
+      repassinfo: new FormControl ('', [Validators.required, Validators.maxLength(10)])
+    });
 
   constructor() { 
+  
   }
 
   ngOnInit(): void {
@@ -31,6 +40,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.message = true;
+    localStorage.setItem('username', this.account.controls.nameinfo.value)
     this.btnresult = "The account was created with the email of" + this.serverName;
   }
 
@@ -43,3 +53,4 @@ export class LoginComponent implements OnInit {
    
  }
 }
+

@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { LoginComponent } from "../login/login.component";
 
 @Component({
     selector: 'app-homepage',
@@ -7,4 +8,7 @@ import { Component } from "@angular/core";
 
 export class HomepageComponent {
 
+    logout() {
+        localStorage.clear();
+    }
 }
