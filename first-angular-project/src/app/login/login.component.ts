@@ -4,7 +4,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  providers:[],
 })
 
 // class AlwaysAuthGuard implements CanActivate {
@@ -24,6 +25,8 @@ export class LoginComponent implements OnInit {
   message = false;
   btnresult = "No account was created!";
 
+  result: [] = []; //not sure what this is excatly
+
   account = new FormGroup({
       emailinfo : new FormControl('', [Validators.required]),
       nameinfo : new FormControl('', [Validators.required, Validators.maxLength(30)]),
@@ -32,7 +35,6 @@ export class LoginComponent implements OnInit {
     });
 
   constructor() { 
-  
   }
 
   ngOnInit(): void {
@@ -52,5 +54,7 @@ export class LoginComponent implements OnInit {
    console.log(this.thePass);
    
  }
+
+
 }
 
