@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
-import { LoginComponent } from "../login/login.component";
+
+import { UserService } from "./user.service";
 
 @Component({
     selector: 'app-homepage',
@@ -8,7 +9,10 @@ import { LoginComponent } from "../login/login.component";
 
 export class HomepageComponent {
 
-    logout() {
-        localStorage.clear();
-    }
+constructor(
+    private userService: UserService){}
+
+logout() {
+    localStorage.clear();}
+
 }
