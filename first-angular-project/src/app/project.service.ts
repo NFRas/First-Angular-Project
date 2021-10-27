@@ -1,4 +1,4 @@
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+
 import { Injectable } from "@angular/core";
 
 
@@ -9,8 +9,9 @@ export class ProjectService {
 
 
 
-  loginUser(username: string, password?: string) {
-    localStorage.setItem('username', username)
+  loginUser(username: string, password: string) {
+    localStorage.setItem('username', username),
+    localStorage.setItem('password', password)
   }
 
 }

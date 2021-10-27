@@ -11,7 +11,7 @@ export class CanActivateTeam implements CanActivate {
   ) {}
 
   canActivate() {
-      if (localStorage.getItem('username')) {
+      if (localStorage.getItem('Token')) {
           return true
         }
         
@@ -19,6 +19,7 @@ export class CanActivateTeam implements CanActivate {
             this.router.navigate(['/login'])
             return false
         }
+    return true
   }
    
 }
