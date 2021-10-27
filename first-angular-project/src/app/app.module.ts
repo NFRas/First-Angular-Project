@@ -10,6 +10,7 @@ import { ServersComponent } from './servers/servers.component';
 import { LoginComponent } from './login/login.component';
 import {CanActivateTeam} from '../shared/guard/test.guard'
 import {PageNotFoundComponent} from '../shared/Error/pageNotFound.component'
+import { UserComponent } from './Users/user.component';
 
 // import { AppRoutingModule } from './app-routing.module'
 import { ReactiveFormsModule } from '@angular/forms';
@@ -21,13 +22,20 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 
+
 const routes: Routes = [
-  { path: '',
-  redirectTo: 'login',
-  pathMatch: 'full' },
- {path: 'login', component: LoginComponent },
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+
+ {
+    path: 'login',
+    component: LoginComponent },
  {path: 'homepage', component: HomepageComponent, canActivate: [CanActivateTeam]},
  { path: '**', component: PageNotFoundComponent },
+ { path: 'profile/:id', component: UserComponent },
 
 ];
 

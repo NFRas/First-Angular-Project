@@ -18,7 +18,7 @@ logout() {
 
     getUser(){
         this.userService.getUser().subscribe(res =>{
-            res[0].username == 'kjngs' ? console.log("admin"): null;
+            res[0].name == 'kjngs' ? console.log("admin"): null;
             this.users=res;
         })
     }
