@@ -5,6 +5,17 @@
 <h3>Who would you like to play with?</h3>
 
 <!-- List e user ha -->
-<button type='button' class='btn btn-warning'(click)=''>Show all playeres</button>
+<button type='button' class='btn btn-warning' (click)='getUser()'>Show all playeres</button>
 <hr>
+
+<ul *ngIf="users && users.length>0">
+    <li *ngFor="let user of users">
+        <strong>Username:</strong>  {{user.username}}, <br>
+        <strong>number:</strong>  {{user.phone}},<br>
+        <!-- <strong>Age: </strong> {{user.age}}, <br> -->
+        <strong>email:</strong>  {{user.email}}
+    </li>
+</ul>
+
+
 <a routerLink = "/login" reouterLinkActive = "active" (click)='logout()'><button class="btn btn-danger" > Logout</button></a>

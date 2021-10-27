@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
+import { UserModel } from "src/shared/model/user.model";
 
-import { UserService } from "./user.service";
+import { UserService } from "../Users/user.service";
 
 @Component({
     selector: 'app-homepage',
@@ -8,11 +9,18 @@ import { UserService } from "./user.service";
 })
 
 export class HomepageComponent {
-
+users: UserModel[]=[]
 constructor(
     private userService: UserService){}
 
 logout() {
     localStorage.clear();}
+
+    getUser(){
+        this.userService.getUser().subscribe(res =>{
+            res[0].username == 'kjngs' ? console.log("admin"): null;
+            this.users=res;
+        })
+    }
 
 }
