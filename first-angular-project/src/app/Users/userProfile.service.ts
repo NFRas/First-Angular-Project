@@ -11,7 +11,8 @@ export class UserProfileService {
     constructor ( private http: HttpClient){}
     private userUrl = `http://192.168.1.44:3000/user/getById/`;
 
-getProfile(id: string): Observable<UserModel[]>{
-    return this.http.get<UserModel[]>(this.userUrl + id)
+getProfile(id: string): Observable<UserModel>{
+    return this.http.get<UserModel>(this.userUrl + id)
 }
 }
+

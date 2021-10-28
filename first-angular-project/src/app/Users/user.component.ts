@@ -11,11 +11,13 @@ templateUrl: './user.component.html',
 })
 
 export class UserComponent implements OnInit{
+    userJson: any;
 
-    constructor (private userProfileService: UserProfileService,
+    constructor (
+        private userProfileService: UserProfileService,
         private http: HttpClient){}
 
-    profile: UserModel[] = []
+    profile: UserModel = new UserModel();
     
 
 ngOnInit() {
@@ -23,9 +25,13 @@ ngOnInit() {
 }
 
 getProfile(){
-    this.userProfileService.getProfile('0').subscribe(res =>{
+    let id ='0'
+    this.userProfileService.getProfile(id).subscribe(res =>{
         //res[0].username == 'sheyda' ? console.log("admin"): null;
         this.profile=res;
+        // localStorage.setItem("user", JSON.stringify(this.profile));
+        // JSON.parse("user");
+        this.userJson = JSON.stringify(res)
         console.log(this.profile);
         
     })
