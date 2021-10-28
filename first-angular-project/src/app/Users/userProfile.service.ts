@@ -7,11 +7,11 @@ import { UserModel } from "src/shared/model/user.model";
     providedIn: 'root'
 })
 
-export class UserService {
+export class UserProfileService {
     constructor ( private http: HttpClient){}
-    private userUrl = `http://192.168.1.44:3000/user/getAll`;
+    private userUrl = `http://192.168.1.44:3000/user/getById/`;
 
-    getAllUser(): Observable<UserModel[]>{
-        return this.http.get<UserModel[]>(this.userUrl)
-    }
+getProfile(id: string): Observable<UserModel[]>{
+    return this.http.get<UserModel[]>(this.userUrl + id)
+}
 }

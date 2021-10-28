@@ -8,9 +8,11 @@
 <button type='button' class='btn btn-warning' (click)='getUser()'>Show all playeres</button>
 <ul *ngIf="users && users.length>0">
     <li *ngFor="let user of users">
-       <a [routerLink]="['profile', user.id]"><strong> Username: {{user.username}}, ID: {{user.id}}</strong> </a> 
+       <!-- <a [routerLink]="['user', user.id]"> -->
+           <a routerLink="/profile/{{user.id}}">
+           <strong> Username: {{user.username}}, ID: {{user.id}}</strong> </a> 
     </li>
 </ul>
 
 <hr>
-<a routerLink = "/login" reouterLinkActive = "active" (click)='logout()'><button class="btn btn-danger" > Logout</button></a>
+<button routerLink = "/login" reouterLinkActive = "active" (click)='logout()' class="btn btn-danger" > Logout</button>
