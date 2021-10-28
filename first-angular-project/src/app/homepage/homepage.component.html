@@ -8,7 +8,7 @@
 <button type='button' class='btn btn-warning' (click)='getUser()'>Show all playeres</button>
 <ul *ngIf="users && users.length>0">
     <li *ngFor="let user of users">
-       <a [routerLink]="['profile', user.id, 'details']"><strong> {{user.name}}  {{user.id}}</strong> </a> 
+       <a [routerLink]="['profile', user.id]"><strong> Username: {{user.username}}, ID: {{user.id}}</strong> </a> 
     </li>
 </ul>
 

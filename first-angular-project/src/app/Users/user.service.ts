@@ -9,7 +9,7 @@ import { UserModel } from "src/shared/model/user.model";
 
 export class UserService {
     constructor ( private http: HttpClient){}
-    private userUrl = `https://jsonplaceholder.typicode.com/users`;
+    private userUrl = `http://192.168.1.44:3000/user/getAll`;
 
 getUser(): Observable<UserModel[]>{
     return this.http.get<UserModel[]>(this.userUrl)

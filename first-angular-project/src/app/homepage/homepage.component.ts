@@ -17,8 +17,9 @@ logout() {
     localStorage.clear();}
 
     getUser(){
+        //Not needed right now
         this.userService.getUser().subscribe(res =>{
-            res[0].name == 'kjngs' ? console.log("admin"): null;
+            res[0].username == 'sheyda' ? console.log("admin"): null;
             this.users=res;
         })
     }

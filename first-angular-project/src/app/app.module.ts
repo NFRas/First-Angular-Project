@@ -35,7 +35,7 @@ const routes: Routes = [
     component: LoginComponent },
  {path: 'homepage', component: HomepageComponent, canActivate: [CanActivateTeam]},
  { path: '**', component: PageNotFoundComponent },
- { path: 'profile/:id', component: UserComponent },
+ { path: 'profile/:id', component: UserComponent, pathMatch: 'full' },// [path: 'user/:id/details', component:userComponent, pathMatch: 'full']
 
 ];
 
