@@ -25,7 +25,7 @@ ngOnInit() {
 }
 
 getProfile(){
-    let id ='0'
+    let id = '0'
     this.userProfileService.getProfile(id).subscribe(res =>{
         //res[0].username == 'sheyda' ? console.log("admin"): null;
         this.profile=res;

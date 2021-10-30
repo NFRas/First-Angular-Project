@@ -21,7 +21,7 @@ logout() {
 
     getUser(){
         //Not needed right now
-        this.userService.getAllUser().subscribe(res =>{
+        this.userService.getAllUser().subscribe(res => {
             res[0].username == 'sheyda' ? console.log("admin"): null;
             this.users=res;
         })
